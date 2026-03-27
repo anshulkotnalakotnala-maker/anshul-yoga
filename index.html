@@ -112,23 +112,20 @@ footer {
     <h1>Transform Your Body & Mind</h1>
     <p>Professional Yoga Classes by Anshul</p>
 
-    <!-- WhatsApp Group Button -->
     <a href="https://chat.whatsapp.com/BG6gjwmhgAp1ThUdwf2sOk?mode=gi_t" target="_blank">
         Join WhatsApp Yoga Class 🧘‍♂️
     </a>
 
-    <!-- Register Button -->
-    <a href="#register">
-        Register Now
-    </a><div class="section">
-    <h2>Pay Fees Online</h2>
+    <a href="#register">Register Now</a>
+</div>
 
-    <a href="upi://pay?pa=anshulkotnala100-3@2oksbi&pn=Anshul%20Yoga%20Studio&am=700&cu=INR" 
+<!-- Payment -->
+<div class="section">
+    <h2>Pay Fees Online</h2>
+    <a href="upi://pay?pa=anshulkotnala100-3@2oksbi&pn=Anshul%20Yoga%20Studio&am=700&cu=INR"
        style="display:inline-block;padding:12px 25px;background:#198754;color:white;text-decoration:none;border-radius:5px;">
-       
        Pay ₹700 via UPI 💳
     </a>
-</div>
 </div>
 
 <!-- About -->
@@ -136,7 +133,6 @@ footer {
     <h2>About Me</h2>
     <p>
         I am a certified yoga trainer helping people achieve a healthy and peaceful life through yoga.
-        My classes focus on physical fitness, mental relaxation, and overall well-being.
     </p>
 
     <h3 style="color:#198754;">💰 Fee Structure</h3>
@@ -166,26 +162,74 @@ footer {
 <div id="register" class="section">
     <h2>Register for Classes</h2>
 
-    <form action="anshulkotnala100@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="Name" placeholder="Your Name" required>
-        <input type="email" name="Email" placeholder="Your Email" required>
-        <input type="tel" name="Phone" placeholder="Phone Number" required>
+    <form onsubmit="sendToWhatsApp(event)">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
 
         <button type="submit">Register</button>
     </form>
 </div>
 
 <!-- Contact -->
-<div class="section">
-    <h2>Contact</h2>
-    <p>📞 Phone: +91 8126832919</p>
-    <p>📍 Uttarakhand, India</p>
+<div id="register" class="section">
+    <h2>Register for Classes</h2>
+
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+
+    <a id="whatsappBtn" target="_blank"
+       style="display:inline-block;padding:12px 25px;background:#198754;color:white;text-decoration:none;border-radius:5px;">
+       Register via WhatsApp
+    </a>
 </div>
+
+<script>
+document.getElementById("whatsappBtn").addEventListener("click", function() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+
+    if(name === "" || email === "" || phone === "") {
+        alert("Please fill all details");
+        return;
+    }
+
+    var message = "New Registration:%0A"
+                + "Name: " + name + "%0A"
+                + "Email: " + email + "%0A"
+                + "Phone: " + phone;
+
+    var url = "https://wa.me/918126832919?text=" + message;
+
+    this.href = url;
+});
+</script>
 
 <!-- Footer -->
 <footer>
     <p>© 2026 Anshul Yoga Studio | All Rights Reserved</p>
 </footer>
+
+<script>
+function sendToWhatsApp(event) {
+    event.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+
+    var message = "New Registration:%0A"
+                + "Name: " + name + "%0A"
+                + "Email: " + email + "%0A"
+                + "Phone: " + phone;
+
+    var whatsappURL = "https://wa.me/918126832919?text=" + message;
+
+    window.open(whatsappURL, "_blank");
+}
+</script>
 
 </body>
 </html>
