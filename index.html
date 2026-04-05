@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anshul Yoga Studio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4fdf7;
+}
+
+/* Navbar */
+nav {
+    background: #0f5132;
+    padding: 15px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(to right, #198754, #20c997);
+    color: white;
+}
+.hero h1 {
+    font-size: 40px;
+}
+.hero a {
+    padding: 12px 25px;
+    background: white;
+    color: #198754;
+    text-decoration: none;
+    margin: 10px;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+/* Section */
+.section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card {
+    background: white;
+    margin: 15px;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+/* Form */
+form {
+    max-width: 400px;
+    margin: auto;
+}
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+button {
+    background: #198754;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background: #0f5132;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div><b>Anshul Yoga Studio</b></div>
+    <div>
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#classes">Classes</a>
+        <a href="#register">Register</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>Transform Your Body & Mind</h1>
+    <p>Professional Yoga Classes by Anshul</p>
+
+    <a href="https://whatsapp.com/channel/0029VaA8yN8HQbRxJu9Kqd3v" target="_blank">
+        Join WhatsApp Yoga Class 🧘‍♂️
+    </a>
+
+    <a href="#register">Register Now</a>
+</div>
+
+<!-- Payment -->
+<div class="section">
+    <h2>Pay Fees Online</h2>
+    <a href="upi://pay?pa=anshulkotnala100-3@2oksbi&pn=Anshul%20Yoga%20Studio&am=700&cu=INR"
+       style="display:inline-block;padding:12px 25px;background:#198754;color:white;text-decoration:none;border-radius:5px;">
+       Pay ₹700 via UPI 💳
+    </a>
+</div>
+
+<!-- About -->
+<div id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+        I am a certified yoga trainer helping people achieve a healthy and peaceful life through yoga.
+    </p>
+
+    <h3 style="color:#198754;">💰 Fee Structure</h3>
+    <p style="font-size:18px;"><b>Online Classes:</b> ₹700 / Month</p>
+</div>
+
+<!-- Classes -->
+<div id="classes" class="section">
+    <h2>Our Classes</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Morning Yoga</h3>
+            <p>6:00 AM - 7:00 AM</p>
+        </div>
+        <div class="card">
+            <h3>Evening Yoga</h3>
+            <p>6:00 PM - 7:00 PM</p>
+        </div>
+        <div class="card">
+            <h3>Online Classes</h3>
+            <p>Join from anywhere</p>
+        </div>
+    </div>
+</div>
+
+<!-- Registration -->
+<div id="register" class="section">
+    <h2>Register for Classes</h2>
+
+    <form onsubmit="sendToWhatsApp(event)">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+<!-- Contact -->
+<div id="register" class="section">
+    <h2>Register for Classes</h2>
+
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+
+    <a id="whatsappBtn" target="_blank"
+       style="display:inline-block;padding:12px 25px;background:#198754;color:white;text-decoration:none;border-radius:5px;">
+       Register via WhatsApp
+    </a>
+</div>
+
+<script>
+document.getElementById("whatsappBtn").addEventListener("click", function() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+
+    if(name === "" || email === "" || phone === "") {
+        alert("Please fill all details");
+        return;
+    }
+
+    var message = "New Registration:%0A"
+                + "Name: " + name + "%0A"
+                + "Email: " + email + "%0A"
+                + "Phone: " + phone;
+
+    var url = "https://wa.me/918126832919?text=" + message;
+
+    this.href = url;
+});
+</script>  
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 Anshul Yoga Studio | All Rights Reserved</p>
+</footer>
+
+<script>
+function sendToWhatsApp(event) {
+    event.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+
+    var message = "New Registration:%0A"
+                + "Name: " + name + "%0A"
+                + "Email: " + email + "%0A"
+                + "Phone: " + phone;
+
+    var whatsappURL = "https://wa.me/918126832919?text=" + message;
+
+    window.open(whatsappURL, "_blank");
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga Portfolio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+/* Header */
+header {
+    background: #0d6efd;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 24px;
+}
+
+/* Container */
+.container {
+    padding: 20px;
+}
+
+/* Section Title */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Image Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+/* Image Style */
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Hover Effect */
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Certificate Section */
+.certificate {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.certificate img {
+    width: 80%;
+    max-width: 600px;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    Yoga Portfolio - Anshul Kotnala
+</header>
+
+<div class="container">
+
+    <!-- Certificate Section -->
+    <div class="certificate">
+        <h2>My Certificate</h2>
+        <img src="C:\Users\anshu\OneDrive\Documents\Desktop\2.jpeg" alt="Yoga Certificate">
+    </div>
+
+    <!-- Gallery Section -->
+    <h2>Yoga Gallery</h2>
+
+    <div class="gallery">
+        <img src="C:\Users\anshu\OneDrive\Documents\Desktop\html 2.jpeg" alt="Yoga Pose 1">
+        <img src="html3.jpeg" alt="Yoga Pose 2">
+        <img src="C:\Users\anshu\OneDrive\Documents\Desktop\html 1.jpeg" alt="Yoga Pose 3">
+    </div>
+
+</div>
+
+</body>
+</html>
